@@ -1,0 +1,60 @@
+<mat-toolbar class="sticky">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+      <button
+        mat-button
+        class="header-toggle-button"
+        (click)="toggleSidenavCollapse()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="logo">
+        <img src="../../../assets/logo-small.png" alt="" />
+      </div>
+
+      <div *ngIf="false" fxLayout="row">
+        <form class="header-search">
+          <mat-form-field class="example-form-field" appearance="outline">
+            <span matPrefix>
+              <button mat-icon-button>
+                <mat-icon>search</mat-icon>
+              </button>
+            </span>
+            <input matInput type="search" />
+            <span matSuffix>
+              <button mat-icon-button>
+                <mat-icon>filter_alt</mat-icon>
+              </button>
+            </span>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+    <div fxLayout="row" class="header-menu">
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-menu #userMenu="matMenu" fxLayoutAlign="end">
+  <mat-list>
+    <mat-list-item class="p-0">
+      <button mat-menu-item [routerLink]="['/userProfile']">
+        <mat-icon>perm_identity</mat-icon>
+        Profile
+      </button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+    <mat-list-item class="p-0">
+      <button mat-menu-item (click)="logout()" translate>
+        <mat-icon>exit_to_app</mat-icon>
+        Logout
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-menu>

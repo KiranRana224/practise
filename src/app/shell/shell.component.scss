@@ -1,0 +1,102 @@
+:host {
+display: flex;
+flex: 1;
+}
+
+.has-border {
+border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-list {
+padding-top: 0;
+}
+
+// big sidebar css //
+.big-sidebar {
+top: 65px !important;
+background-color: #751b19 !important;
+.setting-menu {
+width: 200px !important;
+}
+}
+
+.file-big-sidebar {
+top: 65px !important;
+background-color: #751b19 !important;
+.setting-menu {
+width: 200px !important;
+}
+}
+.big-change-sidebar {
+top: 65px !important;
+background-color: #000 !important;
+}
+// big sidebar css //
+
+// small sidebar css //
+
+.small-sidebar {
+width: 60px !important;
+top: 20% !important;
+// bottom: 140px !important;
+border-radius: 0 12px 12px 0;
+background: #751b19 !important;
+height: 420px;
+overflow-x: hidden;
+.material-icons {
+padding-right: 10px;
+}
+}
+
+.file_small-sidebar {
+width: 60px !important;
+top: 20% !important;
+// bottom: 140px !important;
+border-radius: 0 12px 12px 0;
+background: #751b19 !important;
+height: 420px;
+overflow-x: hidden;
+.material-icons {
+padding-right: 10px;
+}
+}
+// small sidebar css //
+.mat-sidenav {
+width: 200px;
+}
+// .mat-drawer {
+// background-color: #08b3e5;
+// color: #fff;
+// }
+.mat-drawer-side {
+border-right: none;
+}
+
+@media only screen and (max-height: 650px) {
+.small-sidebar {
+width: 60px !important;
+top: 100px !important;
+// bottom: 100px !important;
+border-radius: 0 12px 12px 0;
+background: #751b19 !important;
+height: 436px;
+overflow-x: scroll;
+}
+}
+
+@media only screen and (min-width: 1306px) {
+.small-sidebar {
+top: 14% !important;
+height: 500px;
+}
+}
+
+@media only screen and (min-width: 1600px) {
+.small-sidebar {
+top: 20% !important;
+height: 500px;
+}
+}
+.main-content{
+  background-color:aquamarine  !important;
+}

@@ -1,0 +1,305 @@
+<!-- <div class="sidebar-menus">
+  <mat-list role="list" class="tolltip-main">
+    <mat-nav-list
+      role="listitem"
+      matTooltipClass="tolltip-arrow-left"
+      matTooltip="Dashboard"
+      matTooltipPosition="right"
+      class="menu-bg"
+    >
+      <a
+        mat-list-item
+        routerLink="/home"
+        routerLinkActive="router-link-active"
+        (click)="toggleSubmenu('dashboard')"
+      >
+        <span class="material-icons pr-2">dashboard</span>
+        <span *ngIf="!sidenavCollapsed">Dashboard</span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list
+      role="listitem"
+      matTooltipClass="tolltip-arrow-left"
+      matTooltipPosition="right"
+      class="menu-bg"
+    >
+      <a
+        mat-list-item
+        (click)="toggleSubmenu('employee', $event)"
+        style="cursor: pointer"
+        [class.router-link-active]="isEmployeeRouteActive()"
+      >
+        <span class="material-icons pr-2">supervisor_account</span>
+        <span *ngIf="!sidenavCollapsed">Employees</span>
+        <span
+          class="material-icons ml-auto float-right"
+          *ngIf="!sidenavCollapsed"
+        >
+          {{ submenuEmployeeOpen ? "expand_less" : "expand_more" }}
+        </span>
+      </a>
+
+      <div
+        *ngIf="submenuEmployeeOpen && !sidenavCollapsed"
+        class="submenu-wrapper pl-3"
+      >
+        <div class="submenu-line">
+          <a
+            class="submenu-item"
+            routerLink="/employee/user"
+            [class.router-link-active]="isEmployeeRouteActive()"
+            >Employee</a
+          >
+          <a
+            class="submenu-item"
+            routerLink="/user/user/settings"
+            routerLinkActive="router-link-active"
+            >Document</a
+          >
+        </div>
+      </div>
+      <div
+        class="floating-submenu"
+        *ngIf="submenuEmployeeOpen && sidenavCollapsed"
+        [style.top.px]="submenuTopPosition"
+        [style.left.px]="collapsedSidebarWidth"
+      >
+        <a
+          class="submenu-item"
+          routerLink="/employee/user"
+          (click)="closeSubmenus()"
+          >Employee</a
+        >
+        <a
+          class="submenu-item"
+          routerLink="/user/user/settings"
+          (click)="closeSubmenus()"
+          >Document</a
+        >
+      </div>
+    </mat-nav-list>
+    <mat-nav-list
+      role="listitem"
+      matTooltipClass="tolltip-arrow-left"
+      matTooltip="Clients"
+      matTooltipPosition="right"
+      class="menu-bg"
+    >
+      <a
+        mat-list-item
+        routerLink="/client/client"
+        [class.router-link-active]="isClientRouteActive()"
+        (click)="toggleSubmenu('client')"
+      >
+        <span class="material-icons pr-2">business_center</span>
+        <span *ngIf="!sidenavCollapsed">Clients</span>
+      </a>
+    </mat-nav-list>
+    <mat-nav-list
+      role="listitem"
+      matTooltipClass="tolltip-arrow-left"
+      matTooltipPosition="right"
+      class="menu-bg"
+    >
+      <a
+        mat-list-item
+        (click)="toggleSubmenu('task', $event)"
+        style="cursor: pointer"
+        [class.router-link-active]="isTaskRouteActive()"
+      >
+        <span class="material-icons pr-2">assignment</span>
+        <span *ngIf="!sidenavCollapsed">Task</span>
+        <span
+          class="material-icons ml-auto float-right"
+          *ngIf="!sidenavCollapsed"
+        >
+          {{ submenuTaskOpen ? "expand_less" : "expand_more" }}
+        </span>
+      </a>
+
+      <div
+        *ngIf="submenuTaskOpen && !sidenavCollapsed"
+        class="submenu-wrapper pl-3"
+      >
+        <div class="submenu-line">
+          <a
+            class="submenu-item"
+            routerLink="/task/task"
+            [class.router-link-active]="isTaskRouteActive()"
+            >Calender</a
+          >
+          <a
+            class="submenu-item"
+            routerLink="/user/user/settings"
+            routerLinkActive="router-link-active"
+            >Table</a
+          >
+          <a
+            class="submenu-item"
+            routerLink="/user/user/settings"
+            routerLinkActive="router-link-active"
+            >Board</a
+          >
+          <a
+            class="submenu-item"
+            routerLink="/user/user/settings"
+            routerLinkActive="router-link-active"
+            >Work Folder</a
+          >
+        </div>
+      </div>
+      <div
+        class="floating-submenu"
+        *ngIf="submenuTaskOpen && sidenavCollapsed"
+        [style.top.px]="submenuTopPosition"
+        [style.left.px]="collapsedSidebarWidth"
+      >
+        <a
+          class="submenu-item"
+          routerLink="/task/task"
+          (click)="closeSubmenus()"
+          >Calender</a
+        >
+        <a
+          class="submenu-item"
+          routerLink="/task/viewTask"
+          (click)="closeSubmenus()"
+          >Table</a
+        >
+        <a
+          class="submenu-item"
+          routerLink="/user/user/settings"
+          (click)="closeSubmenus()"
+          >Board</a
+        >
+        <a
+          class="submenu-item"
+          routerLink="/user/user/settings"
+          (click)="closeSubmenus()"
+          >Work Folder</a
+        >
+      </div>
+    </mat-nav-list>
+
+    <mat-nav-list
+      role="listitem"
+      matTooltipClass="tolltip-arrow-left"
+      matTooltip="Report"
+      matTooltipPosition="right"
+      class="menu-bg"
+    >
+      <a mat-list-item
+        ><span class="material-icons pr-2" (click)="toggleSubmenu('report')"
+          >assessment</span
+        >
+        <span *ngIf="!sidenavCollapsed">Report</span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list
+      role="listitem"
+      matTooltipClass="tolltip-arrow-left"
+      matTooltip="Config"
+      matTooltipPosition="right"
+      class="menu-bg"
+    >
+      <a
+        mat-list-item
+        routerLink="/config"
+        [class.router-link-active]="isConfigRouteActive()"
+        (click)="toggleSubmenu('config')"
+      >
+        <span class="material-icons pr-2">build</span>
+        <span *ngIf="!sidenavCollapsed">Config</span>
+      </a>
+    </mat-nav-list>
+  </mat-list>
+</div>
+
+<div>
+  <mat-nav-list
+    role="listitem"
+    class="setting-menu text-dark"
+    matTooltipClass="tolltip-arrow-left"
+    matTooltip="Setting"
+    matTooltipPosition="right"
+  >
+    <a mat-list-item class="setting-item" [routerLink]="['/systemSetting']">
+      <span class="material-icons system-icon pr-2">settings</span>
+      <span *ngIf="!sidenavCollapsed" class="text-dark">System Setting</span>
+    </a>
+  </mat-nav-list>
+</div> -->
+
+<div class="sidebar-menus">
+  <mat-list role="list" class="tolltip-main">
+    <ng-container *ngFor="let menu of menus">
+      <mat-nav-list
+        *ngIf="permissions[menu.permissionKey]"
+        role="listitem"
+        matTooltip="{{ menu.label }}"
+        matTooltipClass="tolltip-arrow-left"
+        matTooltipPosition="right"
+        class="menu-bg"
+      >
+        <!-- Main menu link -->
+        <a
+          mat-list-item
+          [routerLink]="menu.route || null"
+          [class.router-link-active]="isRouteActive(menu.route)"
+          (click)="menu.submenu ? toggleSubmenu(menu.label, $event) : null"
+          style="cursor: pointer"
+        >
+          <span class="material-icons pr-2">{{ menu.icon }}</span>
+          <span *ngIf="!sidenavCollapsed">{{ menu.label }}</span>
+          <span
+            class="material-icons ml-auto float-right"
+            *ngIf="menu.submenu && !sidenavCollapsed"
+          >
+            {{ isSubmenuOpen(menu.label) ? "expand_less" : "expand_more" }}
+          </span>
+        </a>
+
+        <!-- Expanded submenu -->
+        <div
+          *ngIf="menu.submenu && isSubmenuOpen(menu.label) && !sidenavCollapsed"
+          class="submenu-wrapper pl-3"
+        >
+          <div class="submenu-line">
+            <ng-container *ngFor="let sub of menu.submenu">
+              <a
+                *ngIf="permissions[sub.permissionKey]"
+                class="submenu-item"
+                [routerLink]="sub.route"
+                routerLinkActive="router-link-active"
+                (click)="closeSubmenus()"
+              >
+                {{ sub.label }}
+              </a>
+            </ng-container>
+          </div>
+        </div>
+
+        <!-- Floating submenu for collapsed state -->
+        <div
+          class="floating-submenu"
+          *ngIf="menu.submenu && isSubmenuOpen(menu.label) && sidenavCollapsed"
+          [style.top.px]="submenuTopPosition"
+          [style.left.px]="collapsedSidebarWidth"
+        >
+          <ng-container *ngFor="let sub of menu.submenu">
+            <a
+              *ngIf="permissions[sub.permissionKey]"
+              class="submenu-item"
+              [routerLink]="sub.route"
+              (click)="closeSubmenus()"
+            >
+              {{ sub.label }}
+            </a>
+          </ng-container>
+        </div>
+      </mat-nav-list>
+    </ng-container>
+  </mat-list>
+</div>

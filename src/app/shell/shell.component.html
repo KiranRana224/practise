@@ -1,0 +1,26 @@
+<mat-sidenav-container autosize fullscreen>
+  <mat-sidenav
+    [ngClass]="{
+      'file_small-sidebar': sidenavCollapsed,
+      'file-big-sidebar': !sidenavCollapsed,
+      'big-sidebar': !sidenavCollapsed,
+      'small-sidebar': sidenavCollapsed
+    }"
+    #sidenav
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="!isMobile"
+    [disableClose]="!isMobile"
+    position="start"
+  >
+    <app-sidebar [sidenavCollapsed]="sidenavCollapsed"></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header
+      [sidenav]="sidenav"
+      (collapse)="toggleCollapse($event)"
+    ></app-header>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
