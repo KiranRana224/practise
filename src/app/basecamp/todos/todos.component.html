@@ -1,0 +1,92 @@
+<form [formGroup]="form" class="base-layout">
+  <!-- TITLE -->
+  <!-- <div class="row">
+    <label>Title</label>
+
+    <span *ngIf="!editable">{{ todo.title }}</span>
+
+    <mat-form-field *ngIf="editable" appearance="outline">
+      <input matInput formControlName="title" />
+    </mat-form-field>
+  </div> -->
+  <div class="row">
+    <label>Title</label>
+
+    <!-- VIEW MODE -->
+    <span *ngIf="!editable">{{ todo.title }}</span>
+
+    <!-- EDIT MODE -->
+    <mat-form-field
+      *ngIf="editable"
+      appearance="outline"
+      class="title-field no-border"
+    >
+      <textarea
+        matInput
+        formControlName="title"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"
+      >
+      </textarea>
+    </mat-form-field>
+  </div>
+
+  <!-- ASSIGNEE -->
+  <div class="row">
+    <label>Assignee</label>
+
+    <span *ngIf="!editable">{{ todo.assignee }}</span>
+
+    <mat-form-field *ngIf="editable" appearance="outline" class="no-border">
+      <input matInput formControlName="assignee" />
+    </mat-form-field>
+  </div>
+
+  <!-- ⭐ DATE PICKER ROW -->
+  <div class="row">
+    <label>Due date</label>
+
+    <span *ngIf="!editable">
+      {{ todo.due | date: "mediumDate" }}
+    </span>
+
+    <mat-form-field *ngIf="editable" appearance="outline" class="no-border">
+      <input matInput [matDatepicker]="picker" formControlName="due" />
+
+      <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <!-- NOTES -->
+  <div class="row">
+    <label>Notes</label>
+
+    <span *ngIf="!editable">{{ todo.notes }}</span>
+
+    <mat-form-field *ngIf="editable" appearance="outline" class="no-border">
+      <textarea matInput formControlName="notes"></textarea>
+    </mat-form-field>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      *ngIf="!editable"
+      type="button"
+      (click)="edit()"
+    >
+      Edit
+    </button>
+
+    <ng-container *ngIf="editable">
+      <button mat-raised-button color="primary" (click)="save()">Save</button>
+
+      <button mat-button (click)="cancel()">Cancel</button>
+    </ng-container>
+  </div>
+</form>

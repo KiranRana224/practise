@@ -1,0 +1,46 @@
+<!--coounter-->
+<p>{{ count }}</p>
+<button (click)="counter()">Add</button>
+<!--two way binding-->
+<input
+  type="text"
+  [(ngModel)]="inputName"
+  name=""
+  id=""
+  (input)="inputType($event)"
+/>
+{{ textMsg }}
+
+<!--For-->
+<!-- <button (click)="toogleList()">{{ label }}</button>
+<div *ngIf="isListVisible">
+  <div
+    *ngFor="let ele of fruits; let i = index"
+    (click)="selectFruit(i)"
+    [style.backgroundColor]="selectedIndex === i ? 'yellow' : 'transparent'"
+  >
+    <span>{{ ele }} </span>
+    <span (click)="delete(i)">delete</span>
+  </div>
+</div> -->
+
+<!--search-->
+<!-- <button (click)="ascending()">Ascending</button>
+<button (click)="descending()">Descending</button>
+<input type="text" name="" id="" (input)="searchInput($event)" />
+<div *ngFor="let ele of filterList; let i = index">
+  <span>{{ ele }} </span>
+  <span (click)="delete(i)">delete</span>
+</div> -->
+
+<!--two way binding-->
+<input type="number" [(ngModel)]="inputNum" (ngModelChange)="updateColor()" />
+
+<div
+  class="box"
+  [style.background]="colorChange"
+  style="width: 100px; height: 100px"
+></div>
+
+<!--tabs-->
+<button>Home</button>

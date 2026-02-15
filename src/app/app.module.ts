@@ -21,7 +21,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { PractiseUiComponent } from './practise-ui/practise-ui.component';
+import { ChipListComponent } from './chip-list/chip-list.component';
+import { ParentComponent } from './parent/parent.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { TodosComponent } from './basecamp/todos/todos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +37,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ShellComponent,
     HeaderComponent,
     SidebarComponent,
+    PractiseUiComponent,
+    ChipListComponent,
+    ParentComponent,
+    TodosComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +59,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatMenuModule,
     FlexLayoutModule,
     MatTooltipModule,
+    MatListModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

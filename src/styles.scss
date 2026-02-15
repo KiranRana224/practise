@@ -8,3 +8,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .main-content{
   background-color:aquamarine  !important;
 }
+
+/* Kill ALL Material form-field borders (MDC) */
+
+.mat-mdc-form-field.no-border .mdc-notched-outline {
+  display: none !important;
+}
+
+.mat-mdc-form-field.no-border .mat-mdc-text-field-wrapper {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.mat-mdc-form-field.no-border .mat-mdc-form-field-focus-overlay {
+  display: none !important;
+}
+
+.mat-mdc-form-field.no-border .mat-mdc-form-field-infix {
+  padding: 0 !important;
+  border: none !important;
+}
+
+.mat-mdc-form-field.no-border input,
+.mat-mdc-form-field.no-border textarea {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
