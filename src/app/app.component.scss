@@ -1,0 +1,46 @@
+.v-steps {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* each row */
+.v-step {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* left column */
+.indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 14px;
+}
+
+/* circle */
+.circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f1f3f4;
+  border: 2px solid #c5c7ca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* vertical line */
+.v-line {
+  width: 2px;
+  height: 40px;     /* controls spacing */
+  background: #c5c7ca;
+  margin-top: 2px;
+}
+
+/* right content */
+.content {
+  padding-top: 6px;
+  font-size: 14px;
+}
