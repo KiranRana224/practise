@@ -1,0 +1,129 @@
+<!-- <div class="table-row">
+  <div class="employee-card" *ngFor="let emp of data">
+    <div class="emp-header">{{ emp.empName }} (ID: {{ emp.empId }})</div>
+
+    <div class="section">
+      <div class="section-title">Category</div>
+
+      <div class="table-row-item" *ngFor="let cat of emp.category">
+        <span>{{ cat.name }}</span>
+        <span>{{ cat.hrs }} hrs</span>
+      </div>
+
+      <div
+        class="table-row-item empty"
+        *ngFor="let i of getEmptyArray(maxCategoryCount - emp.category.length)"
+      ></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Role</div>
+
+      <div class="table-row-item" *ngFor="let role of emp.role">
+        <span>{{ role.name }}</span>
+        <span>{{ role.hrs }} hrs</span>
+      </div>
+
+      <div
+        class="table-row-item empty"
+        *ngFor="let i of getEmptyArray(maxRoleCount - emp.role.length)"
+      ></div>
+    </div>
+  </div>
+</div> -->
+
+<!--table -->
+
+<div class="table-row">
+  <table class="emp-table" *ngFor="let emp of data">
+    <!-- HEADER -->
+    <tr>
+      <th colspan="2" class="emp-header">
+        {{ emp.empName }} (ID: {{ emp.empId }})
+      </th>
+    </tr>
+
+    <!-- CATEGORY TITLE -->
+    <tr>
+      <td colspan="2" class="section-title">Category</td>
+    </tr>
+
+    <!-- CATEGORY ROWS -->
+    <tr *ngFor="let cat of emp.category">
+      <td>{{ cat.name }}</td>
+      <td class="right">{{ cat.hrs }} hrs</td>
+    </tr>
+
+    <!-- EMPTY CATEGORY ROWS -->
+    <tr *ngFor="let i of getEmptyArray(maxCategoryCount - emp.category.length)">
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <!-- ROLE TITLE -->
+    <tr>
+      <td colspan="2" class="section-title">Role</td>
+    </tr>
+
+    <!-- ROLE ROWS -->
+    <tr *ngFor="let role of emp.role">
+      <td>{{ role.name }}</td>
+      <td class="right">{{ role.hrs }} hrs</td>
+    </tr>
+
+    <!-- EMPTY ROLE ROWS -->
+    <tr *ngFor="let i of getEmptyArray(maxRoleCount - emp.role.length)">
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+
+<table class="main-table">
+  <!-- HEADER ROW -->
+  <tr>
+    <th *ngFor="let emp of data">{{ emp.empName }} ({{ emp.empId }})</th>
+  </tr>
+
+  <!-- CATEGORY TITLE -->
+  <tr>
+    <td *ngFor="let emp of data" class="section-title">Category</td>
+  </tr>
+
+  <!-- CATEGORY ROWS -->
+  <ng-container
+    *ngFor="let i of [].constructor(maxCategoryCount); let rowIndex = index"
+  >
+    <tr>
+      <td *ngFor="let emp of data">
+        {{ emp.category[rowIndex]?.name || "" }}
+        <span class="right">
+          {{
+            emp.category[rowIndex]?.hrs
+              ? emp.category[rowIndex].hrs + " hrs"
+              : ""
+          }}
+        </span>
+      </td>
+    </tr>
+  </ng-container>
+
+  <!-- ROLE TITLE -->
+  <tr>
+    <td *ngFor="let emp of data" class="section-title">Role</td>
+  </tr>
+
+  <!-- ROLE ROWS -->
+  <ng-container
+    *ngFor="let i of [].constructor(maxRoleCount); let rowIndex = index"
+  >
+    <tr>
+      <td *ngFor="let emp of data">
+        {{ emp.role[rowIndex]?.name || "" }}
+        <span class="right">
+          {{ emp.role[rowIndex]?.hrs ? emp.role[rowIndex].hrs + " hrs" : "" }}
+        </span>
+      </td>
+    </tr>
+  </ng-container>
+</table>

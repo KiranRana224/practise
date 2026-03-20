@@ -7,21 +7,19 @@
 <!-- <app-parent></app-parent> -->
 <!-- <app-todos></app-todos> -->
 
-<div class="v-steps">
+<!-- <div class="v-steps">
   <div class="v-step" *ngFor="let step of steps; let i = index">
-    <!-- Left side (circle + line) -->
     <div class="indicator">
       <div class="circle">
         {{ i + 1 }}
       </div>
 
-      <!-- vertical line -->
       <div class="v-line" *ngIf="i < steps.length - 1"></div>
     </div>
 
-    <!-- Right side label -->
     <div class="content">
       {{ step }}
     </div>
   </div>
-</div>
+</div> -->
+<app-dynamic-table></app-dynamic-table>
